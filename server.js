@@ -2,6 +2,8 @@ const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
 
+const SERVER_PORT = process.env.PORT || 3333;
+
 const app = express();
 const server = http.createServer(app);
 // the interface via which socket connections happens is called io
@@ -47,4 +49,4 @@ io.on('connection',function(socket){ // On sucessful connecction , we get a sock
     });
 }) 
 
-server.listen(2345,()=>console.log("Server started on https://localhost:2345"));
+server.listen(SERVER_PORT,()=>console.log("Server started"));
